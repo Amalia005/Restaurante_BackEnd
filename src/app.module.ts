@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { MenuModule } from './menu/menu.module';
 // import { OrdersModule } from './orders/orders.module'; // <- lo usaremos después
+import { DishesModule } from './dishes/dishes.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { MenuModule } from './menu/menu.module';
     AuthModule,
     UsersModule,
     MenuModule,
+    DishesModule,
     // OrdersModule, // cuando creemos el módulo de pedidos lo descomentamos
   ],
 })
