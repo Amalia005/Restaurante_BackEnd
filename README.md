@@ -1,3 +1,57 @@
+# Backend – Sistema de pedidos "Donde la Vita"
+
+Backend del proyecto de restaurante para la asignatura de Metodología de Análisis, construido sobre el template GPI de la Universidad de Valparaíso.
+
+La API expone los platos del menú desde una base de datos **MongoDB (NoSQL)** y los entrega al frontend en React.
+
+---
+
+## Tecnologías
+
+- **Node.js** + **npm**
+- **NestJS 10** (framework backend)
+- **TypeScript**
+- **MongoDB** + **Mongoose**
+- Validación con `class-validator` / `class-transformer`
+- Autenticación y usuarios vienen del template GPI (módulos `auth` y `users`)
+
+---
+
+## Estructura general del backend
+
+Módulos principales:
+
+- `auth` → autenticación (del template GPI).
+- `users` → gestión de usuarios (del template GPI).
+- `menu` → módulo base del template.
+- `dishes` → **módulo nuevo para este proyecto**, encargado de:
+  - Definir el esquema de los platos (`Dish`).
+  - Conectarse a la colección `dishes` en MongoDB.
+  - Exponer endpoints REST para consultar el menú.
+
+El archivo `src/app.module.ts` integra todos los módulos y configura la conexión a MongoDB mediante variables de entorno.
+
+---
+
+## Requisitos
+
+Para ejecutar el backend localmente se necesita:
+
+- **Node.js** (versión 18 o superior recomendada)
+- **npm**
+- **MongoDB** instalado y corriendo en `mongodb://localhost:27017`
+- Frontend (opcional) corriendo en `http://localhost:5173` para probar la integración
+
+---
+
+## Configuración de variables de entorno
+
+En la raíz del proyecto, crear un archivo `.env` con al menos:
+
+```env
+MONGODB_URI=mongodb://localhost:27017/gpi_database
+PORT=3000
+```
 # Backend NestJS para GPI Template - Universidad de Valparaíso
 
 Este proyecto es un backend desarrollado con NestJS y MongoDB para el template GPI de la Universidad de Valparaíso. El backend proporciona una API RESTful que se integra con el frontend React, ofreciendo funcionalidades de autenticación y gestión de usuarios.
