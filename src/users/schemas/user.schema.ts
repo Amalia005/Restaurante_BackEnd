@@ -10,14 +10,14 @@ export interface UserDocument extends User, Document {
 @Schema({
   timestamps: true,
   toJSON: {
-    virtuals: true,
-    transform: (_, ret) => {
-      ret.id = ret._id;
-      delete ret._id;
-      delete ret.__v;
-      return ret;
-    },
+  virtuals: true,
+  transform: (_doc, ret: any) => {
+    ret.id = ret._id;
+    delete ret._id;
+    delete ret.__v;
+    return ret;
   },
+},
 })
 export class User {
   @Prop({ required: true })
